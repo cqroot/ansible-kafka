@@ -6,7 +6,7 @@
     name: main
 
 - name: Unarchive the kafka bin that needs to be downloaded
-  ansible.builtin.unarchive:
+  unarchive:
     src: https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/3.0.0/kafka_2.13-3.0.0.tgz
     dest: /opt/
     remote_src: yes
@@ -22,5 +22,5 @@
     src: server.properties.j2
     dest: /opt/kafka/config/server.properties
 
-- name: start zookeeper
+- name: start kafka
   shell: 'nohup /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties >/dev/null 2>&1 &'
