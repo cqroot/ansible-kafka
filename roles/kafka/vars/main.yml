@@ -1,0 +1,1 @@
+zookeeper_connect: zk-node01:2181,zk-node02:2181,zk-node03:2181
