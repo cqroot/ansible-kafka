@@ -1,7 +1,9 @@
 ---
 
-- name: stop kafka
-  shell: ps aux | grep kafka | grep -v grep | awk '{print $2}' | xargs -i kill -9 {}
+- name: Stop service kafka, if started
+  service:
+    name: kafka
+    state: stopped
   ignore_errors: yes
 
 - name: Delete /opt/kafka
@@ -9,3 +11,10 @@
     state: absent
     path: /opt/kafka
   ignore_errors: yes
+
+- name: Delete /etc/systemd/system/kafka.service
+  file:
+    state: absent
+    path: /etc/systemd/system/kafka.service
+  ignore_errors: yes
+  
