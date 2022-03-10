@@ -2,6 +2,8 @@
 
 ## Installation
 
+Modify the configuration of zookeeper in `roles/kafka/vars/main.yml`.
+
 ```bash
 ansible-playbook -i hosts site.yml
 ```
