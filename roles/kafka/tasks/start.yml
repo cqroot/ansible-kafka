@@ -1,0 +1,5 @@
+---
+- name: Start service kafka, if not started
+  service:
+    name: kafka
+    state: started

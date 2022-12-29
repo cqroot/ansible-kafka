@@ -1,11 +1,4 @@
 ---
-
-- name: Stop service kafka, if started
-  service:
-    name: kafka
-    state: stopped
-  ignore_errors: yes
-
 - name: Delete /opt/kafka
   file:
     state: absent
@@ -17,4 +10,3 @@
     state: absent
     path: /etc/systemd/system/kafka.service
   ignore_errors: yes
-  

@@ -1,0 +1,6 @@
+---
+- name: Stop service kafka, if started
+  service:
+    name: kafka
+    state: stopped
+  ignore_errors: yes

@@ -2,12 +2,12 @@
 
 ## Installation
 
-Modify the configuration of zookeeper in `roles/kafka/vars/main.yml`.
+Modify the configuration of zookeeper in `group_vars/kafka-servers`.
 
 ```bash
-ansible-playbook -i hosts site.yml
-```
-
-```bash
-ansible-playbook -i hosts site.yml --extra-vars "uninstall=true"
+make install
+make uninstall
+make start
+make stop
+make restart
 ```

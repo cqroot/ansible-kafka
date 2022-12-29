@@ -1,5 +1,5 @@
 broker.id={{ groups['all'].index(inventory_hostname) }}
-listeners=PLAINTEXT://{{ ansible_ssh_host }}:9092
+listeners=PLAINTEXT://{{ ansible_host }}:9092
 num.network.threads=3
 num.io.threads=8
 socket.send.buffer.bytes=102400
@@ -14,6 +14,6 @@ transaction.state.log.min.isr=1
 log.retention.hours=168
 log.segment.bytes=1073741824
 log.retention.check.interval.ms=300000
-zookeeper.connect={{ main.zookeeper_connect }}
+zookeeper.connect={{ zookeeper_connect }}
 zookeeper.connection.timeout.ms=18000
 group.initial.rebalance.delay.ms=0

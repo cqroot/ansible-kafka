@@ -1,13 +1,7 @@
 ---
-
-- name: Include vars
-  include_vars:
-    file: main.yml
-    name: main
-
 - name: Unarchive the kafka bin that needs to be downloaded
   unarchive:
-    src: https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/3.0.0/kafka_2.13-3.0.0.tgz
+    src: "{{ kafka_archive }}"
     dest: /opt/
     remote_src: yes
     validate_certs: no
@@ -26,8 +20,3 @@
   template:
     src: kafka.service.j2
     dest: /etc/systemd/system/kafka.service
-
-- name: Start service kafka, if not started
-  service:
-    name: kafka
-    state: started
